@@ -10,9 +10,16 @@
  *******************************************************************************/
 package org.eclipse.elk.core.meta
 
+import org.eclipse.elk.core.meta.scoping.MetaDataImplicitlyImportedFeatures
+import org.eclipse.xtext.xbase.scoping.batch.ImplicitlyImportedFeatures
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class MetaDataRuntimeModule extends AbstractMetaDataRuntimeModule {
+    
+    def Class<? extends ImplicitlyImportedFeatures> bindImplicitlyImportedFeatures() {
+        MetaDataImplicitlyImportedFeatures
+    }
+    
 }
