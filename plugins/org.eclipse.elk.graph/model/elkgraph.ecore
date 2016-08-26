@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="graph" nsURI="http://elk.eclipse.org/ElkGraph" nsPrefix="graph">
+  <eClassifiers xsi:type="ecore:EDataType" name="IProperty" instanceClassName="org.eclipse.elk.graph.properties.IProperty">
+    <eTypeParameters name="T"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IPropertyHolder" instanceClassName="org.eclipse.elk.graph.properties.IPropertyHolder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EMapPropertyHolder" eSuperTypes="#//IPropertyHolder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//ElkPropertyToValueMapEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkGraphData" eSuperTypes="#//EMapPropertyHolder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkGraphElement" eSuperTypes="#//EMapPropertyHolder">
+    <eOperations name="getData">
+      <eGenericType eTypeParameter="#//ElkGraphElement/getData/T"/>
+      <eTypeParameters name="T">
+        <eBounds eClassifier="#//ElkGraphData"/>
+      </eTypeParameters>
+      <eParameters name="type">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
+          <eTypeArguments eTypeParameter="#//ElkGraphElement/getData/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
+        eType="#//ElkLabel" containment="true" eOpposite="#//ElkLabel/parentElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" upperBound="-1" eType="#//ElkGraphData"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkShape" eSuperTypes="#//ElkGraphElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
+        eType="#//ElkPoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dimensions" lowerBound="1"
+        eType="#//ElkDimensions" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkLabel" eSuperTypes="#//ElkShape">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentElement" eType="#//ElkGraphElement"
+        eOpposite="#//ElkGraphElement/labels"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkConnectableShape" eSuperTypes="#//ElkShape">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingEdges" upperBound="-1"
+        eType="#//ElkEdge" eOpposite="#//ElkEdge/sourceNodes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingEdges" upperBound="-1"
+        eType="#//ElkEdge" eOpposite="#//ElkEdge/targetNodes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkNode" eSuperTypes="#//ElkConnectableShape">
+    <eOperations name="getAllIncomingEdges">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+    <eOperations name="getAllOutgoingEdges">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
+        eType="#//ElkPort" containment="true" eOpposite="#//ElkPort/parentNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childNodes" upperBound="-1"
+        eType="#//ElkNode" containment="true" eOpposite="#//ElkNode/parentNode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentNode" eType="#//ElkNode"
+        eOpposite="#//ElkNode/childNodes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containedEdges" upperBound="-1"
+        eType="#//ElkEdge" containment="true" eOpposite="#//ElkEdge/containingNode"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkPort" eSuperTypes="#//ElkConnectableShape">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentNode" eType="#//ElkNode"
+        eOpposite="#//ElkNode/ports"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkEdge" eSuperTypes="#//ElkGraphElement">
+    <eOperations name="isHyperedge" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containingNode" eType="#//ElkNode"
+        eOpposite="#//ElkNode/containedEdges"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceNodes" upperBound="-1"
+        eType="#//ElkConnectableShape" eOpposite="#//ElkConnectableShape/outgoingEdges"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetNodes" upperBound="-1"
+        eType="#//ElkConnectableShape" eOpposite="#//ElkConnectableShape/incomingEdges"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="edgeSections" upperBound="-1"
+        eType="#//ElkEdgeSection" containment="true" eOpposite="#//ElkEdgeSection/parentEdge"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkPoint">
+    <eOperations name="setPoint">
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkEdgeSection">
+    <eOperations name="getIncidentSections">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="startPoint" lowerBound="1"
+        eType="#//ElkPoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endPoint" lowerBound="1"
+        eType="#//ElkPoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bendPoints" upperBound="-1"
+        eType="#//ElkPoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentEdge" eType="#//ElkEdge"
+        eOpposite="#//ElkEdge/edgeSections"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingShape" eType="#//ElkConnectableShape"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingShape" eType="#//ElkConnectableShape"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outgoingSections" upperBound="-1"
+        eType="#//ElkEdgeSection" eOpposite="#//ElkEdgeSection/incomingSections"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incomingSections" upperBound="-1"
+        eType="#//ElkEdgeSection" eOpposite="#//ElkEdgeSection/outgoingSections"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkDimensions">
+    <eOperations name="setDimensions">
+      <eParameters name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eParameters name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElkPropertyToValueMapEntry" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1">
+      <eGenericType eClassifier="#//IProperty">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+</ecore:EPackage>
