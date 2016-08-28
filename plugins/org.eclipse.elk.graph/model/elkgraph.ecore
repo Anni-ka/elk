@@ -4,7 +4,40 @@
   <eClassifiers xsi:type="ecore:EDataType" name="IProperty" instanceClassName="org.eclipse.elk.graph.properties.IProperty">
     <eTypeParameters name="T"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IPropertyHolder" instanceClassName="org.eclipse.elk.graph.properties.IPropertyHolder"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IPropertyHolder" instanceClassName="org.eclipse.elk.graph.properties.IPropertyHolder"
+      abstract="true" interface="true">
+    <eOperations name="setProperty" eType="#//IPropertyHolder">
+      <eTypeParameters name="T"/>
+      <eParameters name="property">
+        <eGenericType eClassifier="#//IProperty">
+          <eTypeArguments eTypeParameter="#//IPropertyHolder/setProperty/T"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="value">
+        <eGenericType eTypeParameter="#//IPropertyHolder/setProperty/T"/>
+      </eParameters>
+    </eOperations>
+    <eOperations name="getProperty">
+      <eGenericType eTypeParameter="#//IPropertyHolder/getProperty/T"/>
+      <eTypeParameters name="T"/>
+      <eParameters name="property">
+        <eGenericType eClassifier="#//IProperty">
+          <eTypeArguments eTypeParameter="#//IPropertyHolder/getProperty/T"/>
+        </eGenericType>
+      </eParameters>
+    </eOperations>
+    <eOperations name="copyProperties" eType="#//IPropertyHolder">
+      <eParameters name="source" eType="#//IPropertyHolder"/>
+    </eOperations>
+    <eOperations name="getAllProperties">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="#//IProperty">
+          <eTypeArguments/>
+        </eTypeArguments>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eGenericType>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EMapPropertyHolder" eSuperTypes="#//IPropertyHolder">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A property holder implementation based on {@link org.eclipse.emf.common.util.EMap} which can be used in Ecore models.&#xA;&#xA;&lt;p>This property holder implementation currently has two ways for saving properties: a map of properties as well as a map of &lt;em>persistent entries&lt;/em>. Persistent entries are String-String pairs containing String representations of properties. When a graph is serialized, it is the persistent entries that get serialized, not the properties themselves. This has two implications. First, to save a graph, one has to call {@link #makePersistent()} first. Second, after loading a graph, one of the methods in {@link org.eclipse.elk.core.util.GraphDataUtil} needs to be called to turn persistent entries back into usable properties.&lt;/p>"/>
