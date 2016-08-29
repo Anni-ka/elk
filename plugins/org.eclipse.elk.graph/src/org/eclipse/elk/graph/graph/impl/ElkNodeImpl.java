@@ -1,0 +1,350 @@
+/**
+ * Copyright (c) 2016 Kiel University and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Kiel University - initial API and implementation
+ */
+package org.eclipse.elk.graph.graph.impl;
+
+import java.util.Collection;
+
+import org.eclipse.elk.graph.graph.ElkEdge;
+import org.eclipse.elk.graph.graph.ElkGraphPackage;
+import org.eclipse.elk.graph.graph.ElkNode;
+import org.eclipse.elk.graph.graph.ElkPort;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+/**
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Elk Node</b></em>'.
+ * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#getPorts <em>Ports</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#getChildNodes <em>Child Nodes</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#getParentNode <em>Parent Node</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#getContainedEdges <em>Contained Edges</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#isHierarchical <em>Hierarchical</em>}</li>
+ * </ul>
+ *
+ * @generated
+ */
+public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
+    /**
+     * The cached value of the '{@link #getPorts() <em>Ports</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getPorts()
+     * @generated
+     * @ordered
+     */
+    protected EList<ElkPort> ports;
+
+    /**
+     * The cached value of the '{@link #getChildNodes() <em>Child Nodes</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getChildNodes()
+     * @generated
+     * @ordered
+     */
+    protected EList<ElkNode> childNodes;
+
+    /**
+     * The cached value of the '{@link #getContainedEdges() <em>Contained Edges</em>}' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getContainedEdges()
+     * @generated
+     * @ordered
+     */
+    protected EList<ElkEdge> containedEdges;
+
+    /**
+     * The default value of the '{@link #isHierarchical() <em>Hierarchical</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #isHierarchical()
+     * @generated
+     * @ordered
+     */
+    protected static final boolean HIERARCHICAL_EDEFAULT = false;
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    protected ElkNodeImpl() {
+        super();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return ElkGraphPackage.Literals.ELK_NODE;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<ElkPort> getPorts() {
+        if (ports == null) {
+            ports = new EObjectContainmentWithInverseEList<ElkPort>(ElkPort.class, this, ElkGraphPackage.ELK_NODE__PORTS, ElkGraphPackage.ELK_PORT__PARENT_NODE);
+        }
+        return ports;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<ElkNode> getChildNodes() {
+        if (childNodes == null) {
+            childNodes = new EObjectContainmentWithInverseEList<ElkNode>(ElkNode.class, this, ElkGraphPackage.ELK_NODE__CHILD_NODES, ElkGraphPackage.ELK_NODE__PARENT_NODE);
+        }
+        return childNodes;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public ElkNode getParentNode() {
+        if (eContainerFeatureID() != ElkGraphPackage.ELK_NODE__PARENT_NODE) return null;
+        return (ElkNode)eInternalContainer();
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public NotificationChain basicSetParentNode(ElkNode newParentNode, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newParentNode, ElkGraphPackage.ELK_NODE__PARENT_NODE, msgs);
+        return msgs;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public void setParentNode(ElkNode newParentNode) {
+        if (newParentNode != eInternalContainer() || (eContainerFeatureID() != ElkGraphPackage.ELK_NODE__PARENT_NODE && newParentNode != null)) {
+            if (EcoreUtil.isAncestor(this, newParentNode))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newParentNode != null)
+                msgs = ((InternalEObject)newParentNode).eInverseAdd(this, ElkGraphPackage.ELK_NODE__CHILD_NODES, ElkNode.class, msgs);
+            msgs = basicSetParentNode(newParentNode, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ElkGraphPackage.ELK_NODE__PARENT_NODE, newParentNode, newParentNode));
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    public EList<ElkEdge> getContainedEdges() {
+        if (containedEdges == null) {
+            containedEdges = new EObjectContainmentWithInverseEList<ElkEdge>(ElkEdge.class, this, ElkGraphPackage.ELK_NODE__CONTAINED_EDGES, ElkGraphPackage.ELK_EDGE__CONTAINING_NODE);
+        }
+        return containedEdges;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated NOT
+     */
+    public boolean isHierarchical() {
+        return getChildNodes().size() > 0;
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case ElkGraphPackage.ELK_NODE__PORTS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getPorts()).basicAdd(otherEnd, msgs);
+            case ElkGraphPackage.ELK_NODE__CHILD_NODES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildNodes()).basicAdd(otherEnd, msgs);
+            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetParentNode((ElkNode)otherEnd, msgs);
+            case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getContainedEdges()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+        switch (featureID) {
+            case ElkGraphPackage.ELK_NODE__PORTS:
+                return ((InternalEList<?>)getPorts()).basicRemove(otherEnd, msgs);
+            case ElkGraphPackage.ELK_NODE__CHILD_NODES:
+                return ((InternalEList<?>)getChildNodes()).basicRemove(otherEnd, msgs);
+            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
+                return basicSetParentNode(null, msgs);
+            case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
+                return ((InternalEList<?>)getContainedEdges()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
+            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
+                return eInternalContainer().eInverseRemove(this, ElkGraphPackage.ELK_NODE__CHILD_NODES, ElkNode.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+        switch (featureID) {
+            case ElkGraphPackage.ELK_NODE__PORTS:
+                return getPorts();
+            case ElkGraphPackage.ELK_NODE__CHILD_NODES:
+                return getChildNodes();
+            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
+                return getParentNode();
+            case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
+                return getContainedEdges();
+            case ElkGraphPackage.ELK_NODE__HIERARCHICAL:
+                return isHierarchical();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
+        switch (featureID) {
+            case ElkGraphPackage.ELK_NODE__PORTS:
+                getPorts().clear();
+                getPorts().addAll((Collection<? extends ElkPort>)newValue);
+                return;
+            case ElkGraphPackage.ELK_NODE__CHILD_NODES:
+                getChildNodes().clear();
+                getChildNodes().addAll((Collection<? extends ElkNode>)newValue);
+                return;
+            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
+                setParentNode((ElkNode)newValue);
+                return;
+            case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
+                getContainedEdges().clear();
+                getContainedEdges().addAll((Collection<? extends ElkEdge>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public void eUnset(int featureID) {
+        switch (featureID) {
+            case ElkGraphPackage.ELK_NODE__PORTS:
+                getPorts().clear();
+                return;
+            case ElkGraphPackage.ELK_NODE__CHILD_NODES:
+                getChildNodes().clear();
+                return;
+            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
+                setParentNode((ElkNode)null);
+                return;
+            case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
+                getContainedEdges().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
+
+    /**
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    @Override
+    public boolean eIsSet(int featureID) {
+        switch (featureID) {
+            case ElkGraphPackage.ELK_NODE__PORTS:
+                return ports != null && !ports.isEmpty();
+            case ElkGraphPackage.ELK_NODE__CHILD_NODES:
+                return childNodes != null && !childNodes.isEmpty();
+            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
+                return getParentNode() != null;
+            case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
+                return containedEdges != null && !containedEdges.isEmpty();
+            case ElkGraphPackage.ELK_NODE__HIERARCHICAL:
+                return isHierarchical() != HIERARCHICAL_EDEFAULT;
+        }
+        return super.eIsSet(featureID);
+    }
+
+} //ElkNodeImpl
