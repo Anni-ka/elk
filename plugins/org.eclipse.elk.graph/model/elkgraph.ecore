@@ -10,7 +10,9 @@
       <eTypeParameters name="T"/>
       <eParameters name="property">
         <eGenericType eClassifier="#//IProperty">
-          <eTypeArguments eTypeParameter="#//IPropertyHolder/setProperty/T"/>
+          <eTypeArguments>
+            <eLowerBound eTypeParameter="#//IPropertyHolder/setProperty/T"/>
+          </eTypeArguments>
         </eGenericType>
       </eParameters>
       <eParameters name="value">
