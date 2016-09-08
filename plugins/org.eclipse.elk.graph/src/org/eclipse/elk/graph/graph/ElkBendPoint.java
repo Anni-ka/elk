@@ -95,6 +95,6 @@ public interface ElkBendPoint extends EObject {
      * @model annotation="http://www.eclipse.org/emf/2002/GenModel body='setX(x);\nsetY(y);'"
      * @generated
      */
-    void setLocation(double x, double y);
+    void set(double x, double y);
 
 } // ElkBendPoint

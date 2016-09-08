@@ -177,6 +177,8 @@ public class ElkGraphSwitch<T> extends Switch<T> {
             case ElkGraphPackage.ELK_EDGE_SECTION: {
                 ElkEdgeSection elkEdgeSection = (ElkEdgeSection)theEObject;
                 T result = caseElkEdgeSection(elkEdgeSection);
+                if (result == null) result = caseEMapPropertyHolder(elkEdgeSection);
+                if (result == null) result = caseIPropertyHolder(elkEdgeSection);
                 if (result == null) result = defaultCase(theEObject);
                 return result;
             }

@@ -192,14 +192,14 @@
         <details key="documentation" value="The node's list of ports.&#xA;&#xA;&lt;p>Adding or removing a port to/from this list automatically sets its parent node.&lt;/p>"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="childNodes" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//ElkNode" containment="true" eOpposite="#//ElkNode/parentNode">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Child nodes contained in this node. If the node contains at least one child node, the node is a &lt;em>hierarchical node&lt;/em>.&#xA;&#xA;&lt;p>Adding or removing a node to/from this list automatically sets its parent node.&lt;/p>"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentNode" eType="#//ElkNode"
-        eOpposite="#//ElkNode/childNodes">
+        eOpposite="#//ElkNode/children">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The node's parent node, if any. If the node has a parent, its location is interpreted relative to the parent node's origin. If it does not, the meaning of its location is not defined. A node without a parent node is called the &lt;em>root node&lt;/em>.&#xA;&#xA;&lt;p>Setting the node's parent node automatically updates the parent node's list of child nodes.&lt;/p>"/>
       </eAnnotations>
@@ -273,7 +273,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A bend point of an {@link ElkEdgeSection}. The coordinates of a bend point are always relative to the origin of the containing node of the edge the bend point belongs to."/>
     </eAnnotations>
-    <eOperations name="setLocation">
+    <eOperations name="set">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Sets the bend point's x and y coordinates simultaneously by calling their respective set methods."/>
         <details key="body" value="setX(x);&#xA;setY(y);"/>
@@ -294,9 +294,9 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ElkEdgeSection">
+  <eClassifiers xsi:type="ecore:EClass" name="ElkEdgeSection" eSuperTypes="#//EMapPropertyHolder">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="An edge section defines the routing of an edge, or a part of that routing. If the edge is a regular edge (as opposed to a hyperedge), it will have a single edge section that connects to the edge's source element and target element. The section will then completely define the edge's start point, its end point, and all of its bend points. This is a special case of the more general case described below.&#xA;&#xA;&lt;p>If the section's parent edge is a hyperedge, defining the routing will be more complicated. There will be enough edge sections to connect all of the edge's souce and target elements. The sections will effectively define a &lt;em>routing graph&lt;/em>: all sections in the graph will connect to other sections and/or sources and targets of the edge, each effectively defining a part of the complex route the edge will take. We call an edge section that connects to at least one {@link ElkConnectableShape} an &lt;em>outer section&lt;/em>. Edge sections that connect only to other edge sections are referred to as &lt;em>inner sections&lt;/em>.&lt;/p>&#xA;&#xA;&lt;p>Conceptually, the routing graph would be undirected. The way references work in EMF, however, forces us to distinguish between a section's incoming and outgoing sections. This is not much of a problem, however: each routing graph can be made acyclic.&lt;/p>&#xA;&#xA;&lt;p>All coordinates that define a section's route are relative to the origin of its edge's containing node.&lt;/p>"/>
+      <details key="documentation" value="An edge section defines the routing of an edge, or a part of that routing. If the edge is a regular edge (as opposed to a hyperedge), it will have a single edge section that connects to the edge's source element and target element. The section will then completely define the edge's start point, its end point, and all of its bend points. This is a special case of the more general case described below.&#xA;&#xA;&lt;p>If the section's parent edge is a hyperedge, defining the routing will be more complicated. There will be enough edge sections to connect all of the edge's souce and target elements. The sections will effectively define a &lt;em>routing graph&lt;/em>: all sections in the graph will connect to other sections and/or sources and targets of the edge, each effectively defining a part of the complex route the edge will take. We call an edge section that connects to at least one {@link ElkConnectableShape} an &lt;em>outer section&lt;/em>. Edge sections that connect only to other edge sections are referred to as &lt;em>inner sections&lt;/em>.&lt;/p>&#xA;&#xA;&lt;p>Conceptually, the routing graph would be undirected. The way references work in EMF, however, forces us to distinguish between a section's incoming and outgoing sections. This is not much of a problem, however: each routing graph can be made acyclic.&lt;/p>&#xA;&#xA;&lt;p>All coordinates that define a section's route are relative to the origin of its edge's containing node.&lt;/p>&#xA;&#xA;&lt;p>Note that edge sections are property holders to allow algorithms to pass more detailed information about an edge section back to the client.&lt;/p>"/>
     </eAnnotations>
     <eOperations name="setStartLocation">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

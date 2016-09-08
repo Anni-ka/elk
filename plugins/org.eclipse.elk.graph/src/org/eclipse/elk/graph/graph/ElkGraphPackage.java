@@ -676,13 +676,13 @@ public interface ElkGraphPackage extends EPackage {
     int ELK_NODE__PORTS = ELK_CONNECTABLE_SHAPE_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Child Nodes</b></em>' containment reference list.
+     * The feature id for the '<em><b>Children</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELK_NODE__CHILD_NODES = ELK_CONNECTABLE_SHAPE_FEATURE_COUNT + 1;
+    int ELK_NODE__CHILDREN = ELK_CONNECTABLE_SHAPE_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Parent Node</b></em>' container reference.
@@ -1013,13 +1013,31 @@ public interface ElkGraphPackage extends EPackage {
     int ELK_EDGE_SECTION = 11;
 
     /**
+     * The feature id for the '<em><b>Properties</b></em>' map.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELK_EDGE_SECTION__PROPERTIES = EMAP_PROPERTY_HOLDER__PROPERTIES;
+
+    /**
+     * The feature id for the '<em><b>Persistent Entries</b></em>' reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ELK_EDGE_SECTION__PERSISTENT_ENTRIES = EMAP_PROPERTY_HOLDER__PERSISTENT_ENTRIES;
+
+    /**
      * The feature id for the '<em><b>Start X</b></em>' attribute.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__START_X = 0;
+    int ELK_EDGE_SECTION__START_X = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Start Y</b></em>' attribute.
@@ -1028,7 +1046,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__START_Y = 1;
+    int ELK_EDGE_SECTION__START_Y = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>End X</b></em>' attribute.
@@ -1037,7 +1055,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__END_X = 2;
+    int ELK_EDGE_SECTION__END_X = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>End Y</b></em>' attribute.
@@ -1046,7 +1064,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__END_Y = 3;
+    int ELK_EDGE_SECTION__END_Y = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Bend Points</b></em>' containment reference list.
@@ -1055,7 +1073,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__BEND_POINTS = 4;
+    int ELK_EDGE_SECTION__BEND_POINTS = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Parent Edge</b></em>' container reference.
@@ -1064,7 +1082,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__PARENT_EDGE = 5;
+    int ELK_EDGE_SECTION__PARENT_EDGE = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Outgoing Shape</b></em>' reference.
@@ -1073,7 +1091,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__OUTGOING_SHAPE = 6;
+    int ELK_EDGE_SECTION__OUTGOING_SHAPE = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Incoming Shape</b></em>' reference.
@@ -1082,7 +1100,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__INCOMING_SHAPE = 7;
+    int ELK_EDGE_SECTION__INCOMING_SHAPE = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Outgoing Sections</b></em>' reference list.
@@ -1091,7 +1109,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__OUTGOING_SECTIONS = 8;
+    int ELK_EDGE_SECTION__OUTGOING_SECTIONS = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Incoming Sections</b></em>' reference list.
@@ -1100,7 +1118,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__INCOMING_SECTIONS = 9;
+    int ELK_EDGE_SECTION__INCOMING_SECTIONS = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 9;
 
     /**
      * The number of structural features of the '<em>Elk Edge Section</em>' class.
@@ -1109,7 +1127,7 @@ public interface ElkGraphPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION_FEATURE_COUNT = 10;
+    int ELK_EDGE_SECTION_FEATURE_COUNT = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 10;
 
     /**
      * The meta object id for the '{@link org.eclipse.elk.graph.graph.impl.ElkPropertyToValueMapEntryImpl <em>Elk Property To Value Map Entry</em>}' class.
@@ -1432,15 +1450,15 @@ public interface ElkGraphPackage extends EPackage {
     EReference getElkNode_Ports();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.elk.graph.graph.ElkNode#getChildNodes <em>Child Nodes</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.elk.graph.graph.ElkNode#getChildren <em>Children</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Child Nodes</em>'.
-     * @see org.eclipse.elk.graph.graph.ElkNode#getChildNodes()
+     * @return the meta object for the containment reference list '<em>Children</em>'.
+     * @see org.eclipse.elk.graph.graph.ElkNode#getChildren()
      * @see #getElkNode()
      * @generated
      */
-    EReference getElkNode_ChildNodes();
+    EReference getElkNode_Children();
 
     /**
      * Returns the meta object for the container reference '{@link org.eclipse.elk.graph.graph.ElkNode#getParentNode <em>Parent Node</em>}'.
@@ -2016,12 +2034,12 @@ public interface ElkGraphPackage extends EPackage {
         EReference ELK_NODE__PORTS = eINSTANCE.getElkNode_Ports();
 
         /**
-         * The meta object literal for the '<em><b>Child Nodes</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ELK_NODE__CHILD_NODES = eINSTANCE.getElkNode_ChildNodes();
+        EReference ELK_NODE__CHILDREN = eINSTANCE.getElkNode_Children();
 
         /**
          * The meta object literal for the '<em><b>Parent Node</b></em>' container reference feature.

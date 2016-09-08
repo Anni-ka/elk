@@ -141,7 +141,7 @@ public class ElkBendPointImpl extends MinimalEObjectImpl.Container implements El
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setLocation(final double x, final double y) {
+    public void set(final double x, final double y) {
         setX(x);
         setY(y);
     }

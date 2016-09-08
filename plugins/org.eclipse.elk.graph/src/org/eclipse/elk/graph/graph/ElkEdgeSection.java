@@ -12,8 +12,6 @@ package org.eclipse.elk.graph.graph;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Elk Edge Section</b></em>'.
@@ -27,6 +25,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>Conceptually, the routing graph would be undirected. The way references work in EMF, however, forces us to distinguish between a section's incoming and outgoing sections. This is not much of a problem, however: each routing graph can be made acyclic.</p>
  * 
  * <p>All coordinates that define a section's route are relative to the origin of its edge's containing node.</p>
+ * 
+ * <p>Note that edge sections are property holders to allow algorithms to pass more detailed information about an edge section back to the client.</p>
  * <!-- end-model-doc -->
  *
  * <p>
@@ -49,7 +49,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ElkEdgeSection extends EObject {
+public interface ElkEdgeSection extends EMapPropertyHolder {
     /**
      * Returns the value of the '<em><b>Start X</b></em>' attribute.
      * <!-- begin-user-doc -->

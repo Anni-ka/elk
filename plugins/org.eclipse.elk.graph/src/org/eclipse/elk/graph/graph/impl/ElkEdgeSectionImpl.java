@@ -27,8 +27,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -56,7 +54,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ElkEdgeSectionImpl extends MinimalEObjectImpl.Container implements ElkEdgeSection {
+public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdgeSection {
     /**
      * The default value of the '{@link #getStartX() <em>Start X</em>}' attribute.
      * <!-- begin-user-doc -->

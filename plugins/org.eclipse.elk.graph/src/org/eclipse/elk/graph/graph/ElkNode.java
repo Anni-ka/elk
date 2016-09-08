@@ -28,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkNode#getPorts <em>Ports</em>}</li>
- *   <li>{@link org.eclipse.elk.graph.graph.ElkNode#getChildNodes <em>Child Nodes</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.ElkNode#getChildren <em>Children</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkNode#getParentNode <em>Parent Node</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkNode#getContainedEdges <em>Contained Edges</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkNode#isHierarchical <em>Hierarchical</em>}</li>
@@ -59,7 +59,7 @@ public interface ElkNode extends ElkConnectableShape {
     EList<ElkPort> getPorts();
 
     /**
-     * Returns the value of the '<em><b>Child Nodes</b></em>' containment reference list.
+     * Returns the value of the '<em><b>Children</b></em>' containment reference list.
      * The list contents are of type {@link org.eclipse.elk.graph.graph.ElkNode}.
      * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkNode#getParentNode <em>Parent Node</em>}'.
      * <!-- begin-user-doc -->
@@ -69,17 +69,17 @@ public interface ElkNode extends ElkConnectableShape {
      * 
      * <p>Adding or removing a node to/from this list automatically sets its parent node.</p>
      * <!-- end-model-doc -->
-     * @return the value of the '<em>Child Nodes</em>' containment reference list.
-     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkNode_ChildNodes()
+     * @return the value of the '<em>Children</em>' containment reference list.
+     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkNode_Children()
      * @see org.eclipse.elk.graph.graph.ElkNode#getParentNode
      * @model opposite="parentNode" containment="true"
      * @generated
      */
-    EList<ElkNode> getChildNodes();
+    EList<ElkNode> getChildren();
 
     /**
      * Returns the value of the '<em><b>Parent Node</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkNode#getChildNodes <em>Child Nodes</em>}'.
+     * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkNode#getChildren <em>Children</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
@@ -90,8 +90,8 @@ public interface ElkNode extends ElkConnectableShape {
      * @return the value of the '<em>Parent Node</em>' container reference.
      * @see #setParentNode(ElkNode)
      * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkNode_ParentNode()
-     * @see org.eclipse.elk.graph.graph.ElkNode#getChildNodes
-     * @model opposite="childNodes" transient="false"
+     * @see org.eclipse.elk.graph.graph.ElkNode#getChildren
+     * @model opposite="children" transient="false"
      * @generated
      */
     ElkNode getParentNode();

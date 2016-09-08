@@ -10,11 +10,9 @@
  *******************************************************************************/
 package org.eclipse.elk.graph.util;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
-import org.eclipse.elk.graph.KNode;
 import org.eclipse.elk.graph.graph.ElkConnectableShape;
 import org.eclipse.elk.graph.graph.ElkEdge;
 import org.eclipse.elk.graph.graph.ElkEdgeSection;
@@ -151,16 +149,24 @@ public final class ElkGraphUtil {
      * @return the new edge.
      * @throws NullPointerException if {@code sources} or {@code targets} is {@code null}.
      */
-    public static ElkEdge createHyperedge(final Collection<ElkConnectableShape> sources,
-            final Collection<ElkConnectableShape> targets) {
+    public static ElkEdge createHyperedge(final Iterable<ElkConnectableShape> sources,
+            final Iterable<ElkConnectableShape> targets) {
         
         Objects.requireNonNull(sources, "sources cannot be null");
         Objects.requireNonNull(targets, "targets cannot be null");
         
         ElkEdge edge = createEdge(null);
         
-        edge.getSources().addAll(sources);
-        edge.getTargets().addAll(targets);
+        List<ElkConnectableShape> edgeSources = edge.getSources();
+        for (ElkConnectableShape source : sources) {
+            edgeSources.add(source);
+        }
+        
+        List<ElkConnectableShape> edgeTargets = edge.getTargets();
+        for (ElkConnectableShape target : targets) {
+            edgeTargets.add(target);
+        }
+        
         updateContainment(edge);
         
         return edge;

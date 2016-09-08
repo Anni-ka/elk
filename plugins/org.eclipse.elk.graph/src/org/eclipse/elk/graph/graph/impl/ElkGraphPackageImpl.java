@@ -417,7 +417,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getElkNode_ChildNodes() {
+    public EReference getElkNode_Children() {
         return (EReference)elkNodeEClass.getEStructuralFeatures().get(1);
     }
 
@@ -775,7 +775,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
 
         elkNodeEClass = createEClass(ELK_NODE);
         createEReference(elkNodeEClass, ELK_NODE__PORTS);
-        createEReference(elkNodeEClass, ELK_NODE__CHILD_NODES);
+        createEReference(elkNodeEClass, ELK_NODE__CHILDREN);
         createEReference(elkNodeEClass, ELK_NODE__PARENT_NODE);
         createEReference(elkNodeEClass, ELK_NODE__CONTAINED_EDGES);
         createEAttribute(elkNodeEClass, ELK_NODE__HIERARCHICAL);
@@ -857,6 +857,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
         elkNodeEClass.getESuperTypes().add(this.getElkConnectableShape());
         elkPortEClass.getESuperTypes().add(this.getElkConnectableShape());
         elkEdgeEClass.getESuperTypes().add(this.getElkGraphElement());
+        elkEdgeSectionEClass.getESuperTypes().add(this.getEMapPropertyHolder());
 
         // Initialize classes and features; add operations and parameters
         initEClass(iPropertyHolderEClass, IPropertyHolder.class, "IPropertyHolder", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
@@ -942,8 +943,8 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
 
         initEClass(elkNodeEClass, ElkNode.class, "ElkNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getElkNode_Ports(), this.getElkPort(), this.getElkPort_ParentNode(), "ports", null, 0, -1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getElkNode_ChildNodes(), this.getElkNode(), this.getElkNode_ParentNode(), "childNodes", null, 0, -1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getElkNode_ParentNode(), this.getElkNode(), this.getElkNode_ChildNodes(), "parentNode", null, 0, 1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkNode_Children(), this.getElkNode(), this.getElkNode_ParentNode(), "children", null, 0, -1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkNode_ParentNode(), this.getElkNode(), this.getElkNode_Children(), "parentNode", null, 0, 1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getElkNode_ContainedEdges(), this.getElkEdge(), this.getElkEdge_ContainingNode(), "containedEdges", null, 0, -1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getElkNode_Hierarchical(), ecorePackage.getEBoolean(), "hierarchical", null, 0, 1, ElkNode.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
@@ -962,7 +963,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
         initEAttribute(getElkBendPoint_X(), ecorePackage.getEDouble(), "x", "0.0", 1, 1, ElkBendPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getElkBendPoint_Y(), ecorePackage.getEDouble(), "y", "0.0", 1, 1, ElkBendPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        op = addEOperation(elkBendPointEClass, null, "setLocation", 0, 1, IS_UNIQUE, IS_ORDERED);
+        op = addEOperation(elkBendPointEClass, null, "set", 0, 1, IS_UNIQUE, IS_ORDERED);
         addEParameter(op, ecorePackage.getEDouble(), "x", 0, 1, IS_UNIQUE, IS_ORDERED);
         addEParameter(op, ecorePackage.getEDouble(), "y", 0, 1, IS_UNIQUE, IS_ORDERED);
 
