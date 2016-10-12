@@ -46,7 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeImpl#getContainingNode <em>Containing Node</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeImpl#getSources <em>Sources</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeImpl#getTargets <em>Targets</em>}</li>
- *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeImpl#getEdgeSections <em>Edge Sections</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeImpl#getSections <em>Sections</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeImpl#isHyperedge <em>Hyperedge</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeImpl#isHierarchical <em>Hierarchical</em>}</li>
  * </ul>
@@ -75,14 +75,14 @@ public class ElkEdgeImpl extends ElkGraphElementImpl implements ElkEdge {
     protected EList<ElkConnectableShape> targets;
 
     /**
-     * The cached value of the '{@link #getEdgeSections() <em>Edge Sections</em>}' containment reference list.
+     * The cached value of the '{@link #getSections() <em>Sections</em>}' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getEdgeSections()
+     * @see #getSections()
      * @generated
      * @ordered
      */
-    protected EList<ElkEdgeSection> edgeSections;
+    protected EList<ElkEdgeSection> sections;
 
     /**
      * The default value of the '{@link #isHyperedge() <em>Hyperedge</em>}' attribute.
@@ -193,11 +193,11 @@ public class ElkEdgeImpl extends ElkGraphElementImpl implements ElkEdge {
      * <!-- end-user-doc -->
      * @generated
      */
-    public EList<ElkEdgeSection> getEdgeSections() {
-        if (edgeSections == null) {
-            edgeSections = new EObjectContainmentWithInverseEList<ElkEdgeSection>(ElkEdgeSection.class, this, ElkGraphPackage.ELK_EDGE__EDGE_SECTIONS, ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE);
+    public EList<ElkEdgeSection> getSections() {
+        if (sections == null) {
+            sections = new EObjectContainmentWithInverseEList<ElkEdgeSection>(ElkEdgeSection.class, this, ElkGraphPackage.ELK_EDGE__SECTIONS, ElkGraphPackage.ELK_EDGE_SECTION__PARENT);
         }
-        return edgeSections;
+        return sections;
     }
 
     /**
@@ -228,9 +228,9 @@ public class ElkEdgeImpl extends ElkGraphElementImpl implements ElkEdge {
             ElkNode representingNode = null;
             
             if (incidentShape instanceof ElkNode) {
-                representingNode = ((ElkNode) incidentShape).getParentNode();
+                representingNode = ((ElkNode) incidentShape).getParent();
             } else if (incidentShape instanceof ElkPort) {
-                representingNode = ((ElkPort) incidentShape).getParentNode().getParentNode();
+                representingNode = ((ElkPort) incidentShape).getParent().getParent();
             }
             
             if (commonRepresentingNode == null) {
@@ -261,8 +261,8 @@ public class ElkEdgeImpl extends ElkGraphElementImpl implements ElkEdge {
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getSources()).basicAdd(otherEnd, msgs);
             case ElkGraphPackage.ELK_EDGE__TARGETS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getTargets()).basicAdd(otherEnd, msgs);
-            case ElkGraphPackage.ELK_EDGE__EDGE_SECTIONS:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getEdgeSections()).basicAdd(otherEnd, msgs);
+            case ElkGraphPackage.ELK_EDGE__SECTIONS:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getSections()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -281,8 +281,8 @@ public class ElkEdgeImpl extends ElkGraphElementImpl implements ElkEdge {
                 return ((InternalEList<?>)getSources()).basicRemove(otherEnd, msgs);
             case ElkGraphPackage.ELK_EDGE__TARGETS:
                 return ((InternalEList<?>)getTargets()).basicRemove(otherEnd, msgs);
-            case ElkGraphPackage.ELK_EDGE__EDGE_SECTIONS:
-                return ((InternalEList<?>)getEdgeSections()).basicRemove(otherEnd, msgs);
+            case ElkGraphPackage.ELK_EDGE__SECTIONS:
+                return ((InternalEList<?>)getSections()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -315,8 +315,8 @@ public class ElkEdgeImpl extends ElkGraphElementImpl implements ElkEdge {
                 return getSources();
             case ElkGraphPackage.ELK_EDGE__TARGETS:
                 return getTargets();
-            case ElkGraphPackage.ELK_EDGE__EDGE_SECTIONS:
-                return getEdgeSections();
+            case ElkGraphPackage.ELK_EDGE__SECTIONS:
+                return getSections();
             case ElkGraphPackage.ELK_EDGE__HYPEREDGE:
                 return isHyperedge();
             case ElkGraphPackage.ELK_EDGE__HIERARCHICAL:
@@ -345,9 +345,9 @@ public class ElkEdgeImpl extends ElkGraphElementImpl implements ElkEdge {
                 getTargets().clear();
                 getTargets().addAll((Collection<? extends ElkConnectableShape>)newValue);
                 return;
-            case ElkGraphPackage.ELK_EDGE__EDGE_SECTIONS:
-                getEdgeSections().clear();
-                getEdgeSections().addAll((Collection<? extends ElkEdgeSection>)newValue);
+            case ElkGraphPackage.ELK_EDGE__SECTIONS:
+                getSections().clear();
+                getSections().addAll((Collection<? extends ElkEdgeSection>)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -370,8 +370,8 @@ public class ElkEdgeImpl extends ElkGraphElementImpl implements ElkEdge {
             case ElkGraphPackage.ELK_EDGE__TARGETS:
                 getTargets().clear();
                 return;
-            case ElkGraphPackage.ELK_EDGE__EDGE_SECTIONS:
-                getEdgeSections().clear();
+            case ElkGraphPackage.ELK_EDGE__SECTIONS:
+                getSections().clear();
                 return;
         }
         super.eUnset(featureID);
@@ -391,8 +391,8 @@ public class ElkEdgeImpl extends ElkGraphElementImpl implements ElkEdge {
                 return sources != null && !sources.isEmpty();
             case ElkGraphPackage.ELK_EDGE__TARGETS:
                 return targets != null && !targets.isEmpty();
-            case ElkGraphPackage.ELK_EDGE__EDGE_SECTIONS:
-                return edgeSections != null && !edgeSections.isEmpty();
+            case ElkGraphPackage.ELK_EDGE__SECTIONS:
+                return sections != null && !sections.isEmpty();
             case ElkGraphPackage.ELK_EDGE__HYPEREDGE:
                 return isHyperedge() != HYPEREDGE_EDEFAULT;
             case ElkGraphPackage.ELK_EDGE__HIERARCHICAL:

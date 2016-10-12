@@ -413,13 +413,13 @@ public interface ElkGraphPackage extends EPackage {
     int ELK_LABEL__Y = ELK_SHAPE__Y;
 
     /**
-     * The feature id for the '<em><b>Parent Element</b></em>' container reference.
+     * The feature id for the '<em><b>Parent</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELK_LABEL__PARENT_ELEMENT = ELK_SHAPE_FEATURE_COUNT + 0;
+    int ELK_LABEL__PARENT = ELK_SHAPE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -685,13 +685,13 @@ public interface ElkGraphPackage extends EPackage {
     int ELK_NODE__CHILDREN = ELK_CONNECTABLE_SHAPE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Parent Node</b></em>' container reference.
+     * The feature id for the '<em><b>Parent</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELK_NODE__PARENT_NODE = ELK_CONNECTABLE_SHAPE_FEATURE_COUNT + 2;
+    int ELK_NODE__PARENT = ELK_CONNECTABLE_SHAPE_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Contained Edges</b></em>' containment reference list.
@@ -830,13 +830,13 @@ public interface ElkGraphPackage extends EPackage {
     int ELK_PORT__INCOMING_EDGES = ELK_CONNECTABLE_SHAPE__INCOMING_EDGES;
 
     /**
-     * The feature id for the '<em><b>Parent Node</b></em>' container reference.
+     * The feature id for the '<em><b>Parent</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELK_PORT__PARENT_NODE = ELK_CONNECTABLE_SHAPE_FEATURE_COUNT + 0;
+    int ELK_PORT__PARENT = ELK_CONNECTABLE_SHAPE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Elk Port</em>' class.
@@ -930,13 +930,13 @@ public interface ElkGraphPackage extends EPackage {
     int ELK_EDGE__TARGETS = ELK_GRAPH_ELEMENT_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Edge Sections</b></em>' containment reference list.
+     * The feature id for the '<em><b>Sections</b></em>' containment reference list.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELK_EDGE__EDGE_SECTIONS = ELK_GRAPH_ELEMENT_FEATURE_COUNT + 3;
+    int ELK_EDGE__SECTIONS = ELK_GRAPH_ELEMENT_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Hyperedge</b></em>' attribute.
@@ -1076,13 +1076,13 @@ public interface ElkGraphPackage extends EPackage {
     int ELK_EDGE_SECTION__BEND_POINTS = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Parent Edge</b></em>' container reference.
+     * The feature id for the '<em><b>Parent</b></em>' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      * @ordered
      */
-    int ELK_EDGE_SECTION__PARENT_EDGE = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 5;
+    int ELK_EDGE_SECTION__PARENT = EMAP_PROPERTY_HOLDER_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Outgoing Shape</b></em>' reference.
@@ -1375,15 +1375,15 @@ public interface ElkGraphPackage extends EPackage {
     EClass getElkLabel();
 
     /**
-     * Returns the meta object for the container reference '{@link org.eclipse.elk.graph.graph.ElkLabel#getParentElement <em>Parent Element</em>}'.
+     * Returns the meta object for the container reference '{@link org.eclipse.elk.graph.graph.ElkLabel#getParent <em>Parent</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Parent Element</em>'.
-     * @see org.eclipse.elk.graph.graph.ElkLabel#getParentElement()
+     * @return the meta object for the container reference '<em>Parent</em>'.
+     * @see org.eclipse.elk.graph.graph.ElkLabel#getParent()
      * @see #getElkLabel()
      * @generated
      */
-    EReference getElkLabel_ParentElement();
+    EReference getElkLabel_Parent();
 
     /**
      * Returns the meta object for the attribute '{@link org.eclipse.elk.graph.graph.ElkLabel#getText <em>Text</em>}'.
@@ -1461,15 +1461,15 @@ public interface ElkGraphPackage extends EPackage {
     EReference getElkNode_Children();
 
     /**
-     * Returns the meta object for the container reference '{@link org.eclipse.elk.graph.graph.ElkNode#getParentNode <em>Parent Node</em>}'.
+     * Returns the meta object for the container reference '{@link org.eclipse.elk.graph.graph.ElkNode#getParent <em>Parent</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Parent Node</em>'.
-     * @see org.eclipse.elk.graph.graph.ElkNode#getParentNode()
+     * @return the meta object for the container reference '<em>Parent</em>'.
+     * @see org.eclipse.elk.graph.graph.ElkNode#getParent()
      * @see #getElkNode()
      * @generated
      */
-    EReference getElkNode_ParentNode();
+    EReference getElkNode_Parent();
 
     /**
      * Returns the meta object for the containment reference list '{@link org.eclipse.elk.graph.graph.ElkNode#getContainedEdges <em>Contained Edges</em>}'.
@@ -1504,15 +1504,15 @@ public interface ElkGraphPackage extends EPackage {
     EClass getElkPort();
 
     /**
-     * Returns the meta object for the container reference '{@link org.eclipse.elk.graph.graph.ElkPort#getParentNode <em>Parent Node</em>}'.
+     * Returns the meta object for the container reference '{@link org.eclipse.elk.graph.graph.ElkPort#getParent <em>Parent</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Parent Node</em>'.
-     * @see org.eclipse.elk.graph.graph.ElkPort#getParentNode()
+     * @return the meta object for the container reference '<em>Parent</em>'.
+     * @see org.eclipse.elk.graph.graph.ElkPort#getParent()
      * @see #getElkPort()
      * @generated
      */
-    EReference getElkPort_ParentNode();
+    EReference getElkPort_Parent();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.elk.graph.graph.ElkEdge <em>Elk Edge</em>}'.
@@ -1558,15 +1558,15 @@ public interface ElkGraphPackage extends EPackage {
     EReference getElkEdge_Targets();
 
     /**
-     * Returns the meta object for the containment reference list '{@link org.eclipse.elk.graph.graph.ElkEdge#getEdgeSections <em>Edge Sections</em>}'.
+     * Returns the meta object for the containment reference list '{@link org.eclipse.elk.graph.graph.ElkEdge#getSections <em>Sections</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the containment reference list '<em>Edge Sections</em>'.
-     * @see org.eclipse.elk.graph.graph.ElkEdge#getEdgeSections()
+     * @return the meta object for the containment reference list '<em>Sections</em>'.
+     * @see org.eclipse.elk.graph.graph.ElkEdge#getSections()
      * @see #getElkEdge()
      * @generated
      */
-    EReference getElkEdge_EdgeSections();
+    EReference getElkEdge_Sections();
 
     /**
      * Returns the meta object for the attribute '{@link org.eclipse.elk.graph.graph.ElkEdge#isHyperedge <em>Hyperedge</em>}'.
@@ -1688,15 +1688,15 @@ public interface ElkGraphPackage extends EPackage {
     EReference getElkEdgeSection_BendPoints();
 
     /**
-     * Returns the meta object for the container reference '{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getParentEdge <em>Parent Edge</em>}'.
+     * Returns the meta object for the container reference '{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getParent <em>Parent</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @return the meta object for the container reference '<em>Parent Edge</em>'.
-     * @see org.eclipse.elk.graph.graph.ElkEdgeSection#getParentEdge()
+     * @return the meta object for the container reference '<em>Parent</em>'.
+     * @see org.eclipse.elk.graph.graph.ElkEdgeSection#getParent()
      * @see #getElkEdgeSection()
      * @generated
      */
-    EReference getElkEdgeSection_ParentEdge();
+    EReference getElkEdgeSection_Parent();
 
     /**
      * Returns the meta object for the reference '{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getOutgoingShape <em>Outgoing Shape</em>}'.
@@ -1974,12 +1974,12 @@ public interface ElkGraphPackage extends EPackage {
         EClass ELK_LABEL = eINSTANCE.getElkLabel();
 
         /**
-         * The meta object literal for the '<em><b>Parent Element</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ELK_LABEL__PARENT_ELEMENT = eINSTANCE.getElkLabel_ParentElement();
+        EReference ELK_LABEL__PARENT = eINSTANCE.getElkLabel_Parent();
 
         /**
          * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
@@ -2042,12 +2042,12 @@ public interface ElkGraphPackage extends EPackage {
         EReference ELK_NODE__CHILDREN = eINSTANCE.getElkNode_Children();
 
         /**
-         * The meta object literal for the '<em><b>Parent Node</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ELK_NODE__PARENT_NODE = eINSTANCE.getElkNode_ParentNode();
+        EReference ELK_NODE__PARENT = eINSTANCE.getElkNode_Parent();
 
         /**
          * The meta object literal for the '<em><b>Contained Edges</b></em>' containment reference list feature.
@@ -2076,12 +2076,12 @@ public interface ElkGraphPackage extends EPackage {
         EClass ELK_PORT = eINSTANCE.getElkPort();
 
         /**
-         * The meta object literal for the '<em><b>Parent Node</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ELK_PORT__PARENT_NODE = eINSTANCE.getElkPort_ParentNode();
+        EReference ELK_PORT__PARENT = eINSTANCE.getElkPort_Parent();
 
         /**
          * The meta object literal for the '{@link org.eclipse.elk.graph.graph.impl.ElkEdgeImpl <em>Elk Edge</em>}' class.
@@ -2118,12 +2118,12 @@ public interface ElkGraphPackage extends EPackage {
         EReference ELK_EDGE__TARGETS = eINSTANCE.getElkEdge_Targets();
 
         /**
-         * The meta object literal for the '<em><b>Edge Sections</b></em>' containment reference list feature.
+         * The meta object literal for the '<em><b>Sections</b></em>' containment reference list feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ELK_EDGE__EDGE_SECTIONS = eINSTANCE.getElkEdge_EdgeSections();
+        EReference ELK_EDGE__SECTIONS = eINSTANCE.getElkEdge_Sections();
 
         /**
          * The meta object literal for the '<em><b>Hyperedge</b></em>' attribute feature.
@@ -2218,12 +2218,12 @@ public interface ElkGraphPackage extends EPackage {
         EReference ELK_EDGE_SECTION__BEND_POINTS = eINSTANCE.getElkEdgeSection_BendPoints();
 
         /**
-         * The meta object literal for the '<em><b>Parent Edge</b></em>' container reference feature.
+         * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        EReference ELK_EDGE_SECTION__PARENT_EDGE = eINSTANCE.getElkEdgeSection_ParentEdge();
+        EReference ELK_EDGE_SECTION__PARENT = eINSTANCE.getElkEdgeSection_Parent();
 
         /**
          * The meta object literal for the '<em><b>Outgoing Shape</b></em>' reference feature.

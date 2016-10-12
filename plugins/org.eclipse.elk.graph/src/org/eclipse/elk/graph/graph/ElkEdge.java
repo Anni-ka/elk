@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdge#getContainingNode <em>Containing Node</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdge#getSources <em>Sources</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdge#getTargets <em>Targets</em>}</li>
- *   <li>{@link org.eclipse.elk.graph.graph.ElkEdge#getEdgeSections <em>Edge Sections</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.ElkEdge#getSections <em>Sections</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdge#isHyperedge <em>Hyperedge</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdge#isHierarchical <em>Hierarchical</em>}</li>
  * </ul>
@@ -110,9 +110,9 @@ public interface ElkEdge extends ElkGraphElement {
     EList<ElkConnectableShape> getTargets();
 
     /**
-     * Returns the value of the '<em><b>Edge Sections</b></em>' containment reference list.
+     * Returns the value of the '<em><b>Sections</b></em>' containment reference list.
      * The list contents are of type {@link org.eclipse.elk.graph.graph.ElkEdgeSection}.
-     * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getParentEdge <em>Parent Edge</em>}'.
+     * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getParent <em>Parent</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
@@ -120,13 +120,13 @@ public interface ElkEdge extends ElkGraphElement {
      * 
      * <p>Adding or removing an edge section to/from this list automatically updates its parent edge.</p>
      * <!-- end-model-doc -->
-     * @return the value of the '<em>Edge Sections</em>' containment reference list.
-     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkEdge_EdgeSections()
-     * @see org.eclipse.elk.graph.graph.ElkEdgeSection#getParentEdge
-     * @model opposite="parentEdge" containment="true"
+     * @return the value of the '<em>Sections</em>' containment reference list.
+     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkEdge_Sections()
+     * @see org.eclipse.elk.graph.graph.ElkEdgeSection#getParent
+     * @model opposite="parent" containment="true"
      * @generated
      */
-    EList<ElkEdgeSection> getEdgeSections();
+    EList<ElkEdgeSection> getSections();
 
     /**
      * Returns the value of the '<em><b>Hyperedge</b></em>' attribute.

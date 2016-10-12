@@ -41,7 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#getPorts <em>Ports</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#getChildren <em>Children</em>}</li>
- *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#getParentNode <em>Parent Node</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#getContainedEdges <em>Contained Edges</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkNodeImpl#isHierarchical <em>Hierarchical</em>}</li>
  * </ul>
@@ -115,7 +115,7 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
      */
     public EList<ElkPort> getPorts() {
         if (ports == null) {
-            ports = new EObjectContainmentWithInverseEList<ElkPort>(ElkPort.class, this, ElkGraphPackage.ELK_NODE__PORTS, ElkGraphPackage.ELK_PORT__PARENT_NODE);
+            ports = new EObjectContainmentWithInverseEList<ElkPort>(ElkPort.class, this, ElkGraphPackage.ELK_NODE__PORTS, ElkGraphPackage.ELK_PORT__PARENT);
         }
         return ports;
     }
@@ -127,7 +127,7 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
      */
     public EList<ElkNode> getChildren() {
         if (children == null) {
-            children = new EObjectContainmentWithInverseEList<ElkNode>(ElkNode.class, this, ElkGraphPackage.ELK_NODE__CHILDREN, ElkGraphPackage.ELK_NODE__PARENT_NODE);
+            children = new EObjectContainmentWithInverseEList<ElkNode>(ElkNode.class, this, ElkGraphPackage.ELK_NODE__CHILDREN, ElkGraphPackage.ELK_NODE__PARENT);
         }
         return children;
     }
@@ -137,8 +137,8 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
      * <!-- end-user-doc -->
      * @generated
      */
-    public ElkNode getParentNode() {
-        if (eContainerFeatureID() != ElkGraphPackage.ELK_NODE__PARENT_NODE) return null;
+    public ElkNode getParent() {
+        if (eContainerFeatureID() != ElkGraphPackage.ELK_NODE__PARENT) return null;
         return (ElkNode)eInternalContainer();
     }
 
@@ -147,8 +147,8 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetParentNode(ElkNode newParentNode, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newParentNode, ElkGraphPackage.ELK_NODE__PARENT_NODE, msgs);
+    public NotificationChain basicSetParent(ElkNode newParent, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newParent, ElkGraphPackage.ELK_NODE__PARENT, msgs);
         return msgs;
     }
 
@@ -157,20 +157,20 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentNode(ElkNode newParentNode) {
-        if (newParentNode != eInternalContainer() || (eContainerFeatureID() != ElkGraphPackage.ELK_NODE__PARENT_NODE && newParentNode != null)) {
-            if (EcoreUtil.isAncestor(this, newParentNode))
+    public void setParent(ElkNode newParent) {
+        if (newParent != eInternalContainer() || (eContainerFeatureID() != ElkGraphPackage.ELK_NODE__PARENT && newParent != null)) {
+            if (EcoreUtil.isAncestor(this, newParent))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
-            if (newParentNode != null)
-                msgs = ((InternalEObject)newParentNode).eInverseAdd(this, ElkGraphPackage.ELK_NODE__CHILDREN, ElkNode.class, msgs);
-            msgs = basicSetParentNode(newParentNode, msgs);
+            if (newParent != null)
+                msgs = ((InternalEObject)newParent).eInverseAdd(this, ElkGraphPackage.ELK_NODE__CHILDREN, ElkNode.class, msgs);
+            msgs = basicSetParent(newParent, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ElkGraphPackage.ELK_NODE__PARENT_NODE, newParentNode, newParentNode));
+            eNotify(new ENotificationImpl(this, Notification.SET, ElkGraphPackage.ELK_NODE__PARENT, newParent, newParent));
     }
 
     /**
@@ -207,10 +207,10 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getPorts()).basicAdd(otherEnd, msgs);
             case ElkGraphPackage.ELK_NODE__CHILDREN:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildren()).basicAdd(otherEnd, msgs);
-            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
+            case ElkGraphPackage.ELK_NODE__PARENT:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetParentNode((ElkNode)otherEnd, msgs);
+                return basicSetParent((ElkNode)otherEnd, msgs);
             case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getContainedEdges()).basicAdd(otherEnd, msgs);
         }
@@ -229,8 +229,8 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
                 return ((InternalEList<?>)getPorts()).basicRemove(otherEnd, msgs);
             case ElkGraphPackage.ELK_NODE__CHILDREN:
                 return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
-            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
-                return basicSetParentNode(null, msgs);
+            case ElkGraphPackage.ELK_NODE__PARENT:
+                return basicSetParent(null, msgs);
             case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
                 return ((InternalEList<?>)getContainedEdges()).basicRemove(otherEnd, msgs);
         }
@@ -245,7 +245,7 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
-            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
+            case ElkGraphPackage.ELK_NODE__PARENT:
                 return eInternalContainer().eInverseRemove(this, ElkGraphPackage.ELK_NODE__CHILDREN, ElkNode.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -263,8 +263,8 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
                 return getPorts();
             case ElkGraphPackage.ELK_NODE__CHILDREN:
                 return getChildren();
-            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
-                return getParentNode();
+            case ElkGraphPackage.ELK_NODE__PARENT:
+                return getParent();
             case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
                 return getContainedEdges();
             case ElkGraphPackage.ELK_NODE__HIERARCHICAL:
@@ -290,8 +290,8 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
                 getChildren().clear();
                 getChildren().addAll((Collection<? extends ElkNode>)newValue);
                 return;
-            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
-                setParentNode((ElkNode)newValue);
+            case ElkGraphPackage.ELK_NODE__PARENT:
+                setParent((ElkNode)newValue);
                 return;
             case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
                 getContainedEdges().clear();
@@ -315,8 +315,8 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
             case ElkGraphPackage.ELK_NODE__CHILDREN:
                 getChildren().clear();
                 return;
-            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
-                setParentNode((ElkNode)null);
+            case ElkGraphPackage.ELK_NODE__PARENT:
+                setParent((ElkNode)null);
                 return;
             case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
                 getContainedEdges().clear();
@@ -337,8 +337,8 @@ public class ElkNodeImpl extends ElkConnectableShapeImpl implements ElkNode {
                 return ports != null && !ports.isEmpty();
             case ElkGraphPackage.ELK_NODE__CHILDREN:
                 return children != null && !children.isEmpty();
-            case ElkGraphPackage.ELK_NODE__PARENT_NODE:
-                return getParentNode() != null;
+            case ElkGraphPackage.ELK_NODE__PARENT:
+                return getParent() != null;
             case ElkGraphPackage.ELK_NODE__CONTAINED_EDGES:
                 return containedEdges != null && !containedEdges.isEmpty();
             case ElkGraphPackage.ELK_NODE__HIERARCHICAL:

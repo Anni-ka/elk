@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkLabelImpl#getParentElement <em>Parent Element</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkLabelImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkLabelImpl#getText <em>Text</em>}</li>
  * </ul>
  *
@@ -83,8 +83,8 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
      * <!-- end-user-doc -->
      * @generated
      */
-    public ElkGraphElement getParentElement() {
-        if (eContainerFeatureID() != ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT) return null;
+    public ElkGraphElement getParent() {
+        if (eContainerFeatureID() != ElkGraphPackage.ELK_LABEL__PARENT) return null;
         return (ElkGraphElement)eInternalContainer();
     }
 
@@ -93,8 +93,8 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetParentElement(ElkGraphElement newParentElement, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newParentElement, ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT, msgs);
+    public NotificationChain basicSetParent(ElkGraphElement newParent, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newParent, ElkGraphPackage.ELK_LABEL__PARENT, msgs);
         return msgs;
     }
 
@@ -103,20 +103,20 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentElement(ElkGraphElement newParentElement) {
-        if (newParentElement != eInternalContainer() || (eContainerFeatureID() != ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT && newParentElement != null)) {
-            if (EcoreUtil.isAncestor(this, newParentElement))
+    public void setParent(ElkGraphElement newParent) {
+        if (newParent != eInternalContainer() || (eContainerFeatureID() != ElkGraphPackage.ELK_LABEL__PARENT && newParent != null)) {
+            if (EcoreUtil.isAncestor(this, newParent))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
-            if (newParentElement != null)
-                msgs = ((InternalEObject)newParentElement).eInverseAdd(this, ElkGraphPackage.ELK_GRAPH_ELEMENT__LABELS, ElkGraphElement.class, msgs);
-            msgs = basicSetParentElement(newParentElement, msgs);
+            if (newParent != null)
+                msgs = ((InternalEObject)newParent).eInverseAdd(this, ElkGraphPackage.ELK_GRAPH_ELEMENT__LABELS, ElkGraphElement.class, msgs);
+            msgs = basicSetParent(newParent, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT, newParentElement, newParentElement));
+            eNotify(new ENotificationImpl(this, Notification.SET, ElkGraphPackage.ELK_LABEL__PARENT, newParent, newParent));
     }
 
     /**
@@ -148,10 +148,10 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT:
+            case ElkGraphPackage.ELK_LABEL__PARENT:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetParentElement((ElkGraphElement)otherEnd, msgs);
+                return basicSetParent((ElkGraphElement)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -164,8 +164,8 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT:
-                return basicSetParentElement(null, msgs);
+            case ElkGraphPackage.ELK_LABEL__PARENT:
+                return basicSetParent(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -178,7 +178,7 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
-            case ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT:
+            case ElkGraphPackage.ELK_LABEL__PARENT:
                 return eInternalContainer().eInverseRemove(this, ElkGraphPackage.ELK_GRAPH_ELEMENT__LABELS, ElkGraphElement.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -192,8 +192,8 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT:
-                return getParentElement();
+            case ElkGraphPackage.ELK_LABEL__PARENT:
+                return getParent();
             case ElkGraphPackage.ELK_LABEL__TEXT:
                 return getText();
         }
@@ -208,8 +208,8 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT:
-                setParentElement((ElkGraphElement)newValue);
+            case ElkGraphPackage.ELK_LABEL__PARENT:
+                setParent((ElkGraphElement)newValue);
                 return;
             case ElkGraphPackage.ELK_LABEL__TEXT:
                 setText((String)newValue);
@@ -226,8 +226,8 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT:
-                setParentElement((ElkGraphElement)null);
+            case ElkGraphPackage.ELK_LABEL__PARENT:
+                setParent((ElkGraphElement)null);
                 return;
             case ElkGraphPackage.ELK_LABEL__TEXT:
                 setText(TEXT_EDEFAULT);
@@ -244,8 +244,8 @@ public class ElkLabelImpl extends ElkShapeImpl implements ElkLabel {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT:
-                return getParentElement() != null;
+            case ElkGraphPackage.ELK_LABEL__PARENT:
+                return getParent() != null;
             case ElkGraphPackage.ELK_LABEL__TEXT:
                 return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
         }

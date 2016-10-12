@@ -108,7 +108,7 @@ public class ElkGraphElementImpl extends EMapPropertyHolderImpl implements ElkGr
      */
     public EList<ElkLabel> getLabels() {
         if (labels == null) {
-            labels = new EObjectContainmentWithInverseEList<ElkLabel>(ElkLabel.class, this, ElkGraphPackage.ELK_GRAPH_ELEMENT__LABELS, ElkGraphPackage.ELK_LABEL__PARENT_ELEMENT);
+            labels = new EObjectContainmentWithInverseEList<ElkLabel>(ElkLabel.class, this, ElkGraphPackage.ELK_GRAPH_ELEMENT__LABELS, ElkGraphPackage.ELK_LABEL__PARENT);
         }
         return labels;
     }

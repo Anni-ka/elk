@@ -24,7 +24,7 @@ package org.eclipse.elk.graph.graph;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.elk.graph.graph.ElkLabel#getParentElement <em>Parent Element</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.ElkLabel#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkLabel#getText <em>Text</em>}</li>
  * </ul>
  *
@@ -34,7 +34,7 @@ package org.eclipse.elk.graph.graph;
  */
 public interface ElkLabel extends ElkShape {
     /**
-     * Returns the value of the '<em><b>Parent Element</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkGraphElement#getLabels <em>Labels</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -43,24 +43,24 @@ public interface ElkLabel extends ElkShape {
      * 
      * <p>Setting the parent element automatically updates its list of labels.</p>
      * <!-- end-model-doc -->
-     * @return the value of the '<em>Parent Element</em>' container reference.
-     * @see #setParentElement(ElkGraphElement)
-     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkLabel_ParentElement()
+     * @return the value of the '<em>Parent</em>' container reference.
+     * @see #setParent(ElkGraphElement)
+     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkLabel_Parent()
      * @see org.eclipse.elk.graph.graph.ElkGraphElement#getLabels
      * @model opposite="labels" transient="false"
      * @generated
      */
-    ElkGraphElement getParentElement();
+    ElkGraphElement getParent();
 
     /**
-     * Sets the value of the '{@link org.eclipse.elk.graph.graph.ElkLabel#getParentElement <em>Parent Element</em>}' container reference.
+     * Sets the value of the '{@link org.eclipse.elk.graph.graph.ElkLabel#getParent <em>Parent</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Parent Element</em>' container reference.
-     * @see #getParentElement()
+     * @param value the new value of the '<em>Parent</em>' container reference.
+     * @see #getParent()
      * @generated
      */
-    void setParentElement(ElkGraphElement value);
+    void setParent(ElkGraphElement value);
 
     /**
      * Returns the value of the '<em><b>Text</b></em>' attribute.

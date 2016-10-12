@@ -86,7 +86,7 @@
       </eParameters>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="labels" upperBound="-1"
-        eType="#//ElkLabel" containment="true" eOpposite="#//ElkLabel/parentElement">
+        eType="#//ElkLabel" containment="true" eOpposite="#//ElkLabel/parent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Labels associated with this graph element.&#xA;&#xA;&lt;p>Adding or removing a label to/from this list automatically updates its parent element.&lt;/p>"/>
       </eAnnotations>
@@ -152,7 +152,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Labels are used to associate graph elements with text to be displayed in a diagram. The element the label annotates is its parent element."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentElement" eType="#//ElkGraphElement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ElkGraphElement"
         eOpposite="#//ElkGraphElement/labels">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Graph element the label annotates.&#xA;&#xA;&lt;p>Setting the parent element automatically updates its list of labels.&lt;/p>"/>
@@ -187,18 +187,18 @@
       <details key="documentation" value="A node in the graph. Edges can be connected to the node directly or through one of its ports.&#xA;&#xA;&lt;p>All nodes except one must have an assigned parent node. The node that does not have a parent node is the graph's root node and represents the graph itself. There can only be one root node for each graph. The parent-child relationship of nodes induces hierarchy in nested graphs: a node's children constitute the graph contained in and represented by that node.&lt;/p>"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
-        eType="#//ElkPort" containment="true" eOpposite="#//ElkPort/parentNode">
+        eType="#//ElkPort" containment="true" eOpposite="#//ElkPort/parent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The node's list of ports.&#xA;&#xA;&lt;p>Adding or removing a port to/from this list automatically sets its parent node.&lt;/p>"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
-        eType="#//ElkNode" containment="true" eOpposite="#//ElkNode/parentNode">
+        eType="#//ElkNode" containment="true" eOpposite="#//ElkNode/parent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Child nodes contained in this node. If the node contains at least one child node, the node is a &lt;em>hierarchical node&lt;/em>.&#xA;&#xA;&lt;p>Adding or removing a node to/from this list automatically sets its parent node.&lt;/p>"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentNode" eType="#//ElkNode"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ElkNode"
         eOpposite="#//ElkNode/children">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The node's parent node, if any. If the node has a parent, its location is interpreted relative to the parent node's origin. If it does not, the meaning of its location is not defined. A node without a parent node is called the &lt;em>root node&lt;/em>.&#xA;&#xA;&lt;p>Setting the node's parent node automatically updates the parent node's list of child nodes.&lt;/p>"/>
@@ -221,7 +221,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A port represents an explicit point through which to connect to a node. Different ports of a node will usually have different associated meanings, much like different method parameters. Each port belongs to the node it is contained in."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentNode" eType="#//ElkNode"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ElkNode"
         eOpposite="#//ElkNode/ports">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The node the port belongs to.&#xA;&#xA;&lt;p>Setting the parent node automatically update's the node's list of ports.&lt;/p>"/>
@@ -250,8 +250,8 @@
         <details key="documentation" value="The edge's list of target elements. For an edge to make sense, it should have at least one target element.&#xA;&#xA;&lt;p>Adding or removing an element to/from this list automatically updates its list of incoming edges.&lt;/p>"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="edgeSections" upperBound="-1"
-        eType="#//ElkEdgeSection" containment="true" eOpposite="#//ElkEdgeSection/parentEdge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
+        eType="#//ElkEdgeSection" containment="true" eOpposite="#//ElkEdgeSection/parent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="All edge sections that define the routing of this edge.&#xA;&#xA;&lt;p>Adding or removing an edge section to/from this list automatically updates its parent edge.&lt;/p>"/>
       </eAnnotations>
@@ -340,8 +340,8 @@
         <details key="documentation" value="The section's list of bend points. May well be empty if the section represents a straight line."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentEdge" eType="#//ElkEdge"
-        eOpposite="#//ElkEdge/edgeSections">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//ElkEdge"
+        eOpposite="#//ElkEdge/sections">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The edge this section belongs to.&#xA;&#xA;&lt;p>Setting the parent edge automatically updates its list of edge sections.&lt;/p>"/>
       </eAnnotations>

@@ -60,7 +60,7 @@ public final class ElkGraphUtil {
         ElkNode node = ElkGraphFactory.eINSTANCE.createElkNode();
         
         if (parent != null) {
-            node.setParentNode(parent);
+            node.setParent(parent);
         }
         
         return node;
@@ -76,7 +76,7 @@ public final class ElkGraphUtil {
         ElkPort port = ElkGraphFactory.eINSTANCE.createElkPort();
         
         if (parent != null) {
-            port.setParentNode(parent);
+            port.setParent(parent);
         }
         
         return port;
@@ -92,7 +92,7 @@ public final class ElkGraphUtil {
         ElkLabel label = ElkGraphFactory.eINSTANCE.createElkLabel();
         
         if (parent != null) {
-            label.setParentElement(parent);
+            label.setParent(parent);
         }
         
         return label;
@@ -231,8 +231,8 @@ public final class ElkGraphUtil {
     public static boolean isDescendant(final ElkNode child, final ElkNode ancestor) {
         // Go up the hierarchy and see if we find the ancestor
         ElkNode current = child;
-        while (current.getParentNode() != null) {
-            current = current.getParentNode();
+        while (current.getParent() != null) {
+            current = current.getParent();
             if (current == ancestor) {
                 return true;
             }

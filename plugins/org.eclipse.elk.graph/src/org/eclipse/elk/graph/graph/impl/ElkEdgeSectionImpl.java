@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeSectionImpl#getEndX <em>End X</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeSectionImpl#getEndY <em>End Y</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeSectionImpl#getBendPoints <em>Bend Points</em>}</li>
- *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeSectionImpl#getParentEdge <em>Parent Edge</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeSectionImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeSectionImpl#getOutgoingShape <em>Outgoing Shape</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeSectionImpl#getIncomingShape <em>Incoming Shape</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkEdgeSectionImpl#getOutgoingSections <em>Outgoing Sections</em>}</li>
@@ -305,8 +305,8 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
      * <!-- end-user-doc -->
      * @generated
      */
-    public ElkEdge getParentEdge() {
-        if (eContainerFeatureID() != ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE) return null;
+    public ElkEdge getParent() {
+        if (eContainerFeatureID() != ElkGraphPackage.ELK_EDGE_SECTION__PARENT) return null;
         return (ElkEdge)eInternalContainer();
     }
 
@@ -315,8 +315,8 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetParentEdge(ElkEdge newParentEdge, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newParentEdge, ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE, msgs);
+    public NotificationChain basicSetParent(ElkEdge newParent, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newParent, ElkGraphPackage.ELK_EDGE_SECTION__PARENT, msgs);
         return msgs;
     }
 
@@ -325,20 +325,20 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentEdge(ElkEdge newParentEdge) {
-        if (newParentEdge != eInternalContainer() || (eContainerFeatureID() != ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE && newParentEdge != null)) {
-            if (EcoreUtil.isAncestor(this, newParentEdge))
+    public void setParent(ElkEdge newParent) {
+        if (newParent != eInternalContainer() || (eContainerFeatureID() != ElkGraphPackage.ELK_EDGE_SECTION__PARENT && newParent != null)) {
+            if (EcoreUtil.isAncestor(this, newParent))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
-            if (newParentEdge != null)
-                msgs = ((InternalEObject)newParentEdge).eInverseAdd(this, ElkGraphPackage.ELK_EDGE__EDGE_SECTIONS, ElkEdge.class, msgs);
-            msgs = basicSetParentEdge(newParentEdge, msgs);
+            if (newParent != null)
+                msgs = ((InternalEObject)newParent).eInverseAdd(this, ElkGraphPackage.ELK_EDGE__SECTIONS, ElkEdge.class, msgs);
+            msgs = basicSetParent(newParent, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE, newParentEdge, newParentEdge));
+            eNotify(new ENotificationImpl(this, Notification.SET, ElkGraphPackage.ELK_EDGE_SECTION__PARENT, newParent, newParent));
     }
 
     /**
@@ -470,10 +470,10 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE:
+            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetParentEdge((ElkEdge)otherEnd, msgs);
+                return basicSetParent((ElkEdge)otherEnd, msgs);
             case ElkGraphPackage.ELK_EDGE_SECTION__OUTGOING_SECTIONS:
                 return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutgoingSections()).basicAdd(otherEnd, msgs);
             case ElkGraphPackage.ELK_EDGE_SECTION__INCOMING_SECTIONS:
@@ -492,8 +492,8 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
         switch (featureID) {
             case ElkGraphPackage.ELK_EDGE_SECTION__BEND_POINTS:
                 return ((InternalEList<?>)getBendPoints()).basicRemove(otherEnd, msgs);
-            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE:
-                return basicSetParentEdge(null, msgs);
+            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT:
+                return basicSetParent(null, msgs);
             case ElkGraphPackage.ELK_EDGE_SECTION__OUTGOING_SECTIONS:
                 return ((InternalEList<?>)getOutgoingSections()).basicRemove(otherEnd, msgs);
             case ElkGraphPackage.ELK_EDGE_SECTION__INCOMING_SECTIONS:
@@ -510,8 +510,8 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
-            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE:
-                return eInternalContainer().eInverseRemove(this, ElkGraphPackage.ELK_EDGE__EDGE_SECTIONS, ElkEdge.class, msgs);
+            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT:
+                return eInternalContainer().eInverseRemove(this, ElkGraphPackage.ELK_EDGE__SECTIONS, ElkEdge.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -534,8 +534,8 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
                 return getEndY();
             case ElkGraphPackage.ELK_EDGE_SECTION__BEND_POINTS:
                 return getBendPoints();
-            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE:
-                return getParentEdge();
+            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT:
+                return getParent();
             case ElkGraphPackage.ELK_EDGE_SECTION__OUTGOING_SHAPE:
                 if (resolve) return getOutgoingShape();
                 return basicGetOutgoingShape();
@@ -575,8 +575,8 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
                 getBendPoints().clear();
                 getBendPoints().addAll((Collection<? extends ElkBendPoint>)newValue);
                 return;
-            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE:
-                setParentEdge((ElkEdge)newValue);
+            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT:
+                setParent((ElkEdge)newValue);
                 return;
             case ElkGraphPackage.ELK_EDGE_SECTION__OUTGOING_SHAPE:
                 setOutgoingShape((ElkConnectableShape)newValue);
@@ -619,8 +619,8 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
             case ElkGraphPackage.ELK_EDGE_SECTION__BEND_POINTS:
                 getBendPoints().clear();
                 return;
-            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE:
-                setParentEdge((ElkEdge)null);
+            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT:
+                setParent((ElkEdge)null);
                 return;
             case ElkGraphPackage.ELK_EDGE_SECTION__OUTGOING_SHAPE:
                 setOutgoingShape((ElkConnectableShape)null);
@@ -656,8 +656,8 @@ public class ElkEdgeSectionImpl extends EMapPropertyHolderImpl implements ElkEdg
                 return endY != END_Y_EDEFAULT;
             case ElkGraphPackage.ELK_EDGE_SECTION__BEND_POINTS:
                 return bendPoints != null && !bendPoints.isEmpty();
-            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT_EDGE:
-                return getParentEdge() != null;
+            case ElkGraphPackage.ELK_EDGE_SECTION__PARENT:
+                return getParent() != null;
             case ElkGraphPackage.ELK_EDGE_SECTION__OUTGOING_SHAPE:
                 return outgoingShape != null;
             case ElkGraphPackage.ELK_EDGE_SECTION__INCOMING_SHAPE:

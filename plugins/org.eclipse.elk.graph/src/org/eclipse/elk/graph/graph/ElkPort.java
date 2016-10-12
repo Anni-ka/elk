@@ -24,7 +24,7 @@ package org.eclipse.elk.graph.graph;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.elk.graph.graph.ElkPort#getParentNode <em>Parent Node</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.ElkPort#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkPort()
@@ -33,7 +33,7 @@ package org.eclipse.elk.graph.graph;
  */
 public interface ElkPort extends ElkConnectableShape {
     /**
-     * Returns the value of the '<em><b>Parent Node</b></em>' container reference.
+     * Returns the value of the '<em><b>Parent</b></em>' container reference.
      * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkNode#getPorts <em>Ports</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -42,23 +42,23 @@ public interface ElkPort extends ElkConnectableShape {
      * 
      * <p>Setting the parent node automatically update's the node's list of ports.</p>
      * <!-- end-model-doc -->
-     * @return the value of the '<em>Parent Node</em>' container reference.
-     * @see #setParentNode(ElkNode)
-     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkPort_ParentNode()
+     * @return the value of the '<em>Parent</em>' container reference.
+     * @see #setParent(ElkNode)
+     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkPort_Parent()
      * @see org.eclipse.elk.graph.graph.ElkNode#getPorts
      * @model opposite="ports" transient="false"
      * @generated
      */
-    ElkNode getParentNode();
+    ElkNode getParent();
 
     /**
-     * Sets the value of the '{@link org.eclipse.elk.graph.graph.ElkPort#getParentNode <em>Parent Node</em>}' container reference.
+     * Sets the value of the '{@link org.eclipse.elk.graph.graph.ElkPort#getParent <em>Parent</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Parent Node</em>' container reference.
-     * @see #getParentNode()
+     * @param value the new value of the '<em>Parent</em>' container reference.
+     * @see #getParent()
      * @generated
      */
-    void setParentNode(ElkNode value);
+    void setParent(ElkNode value);
 
 } // ElkPort

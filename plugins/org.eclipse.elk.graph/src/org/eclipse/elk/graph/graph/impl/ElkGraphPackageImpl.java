@@ -354,7 +354,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getElkLabel_ParentElement() {
+    public EReference getElkLabel_Parent() {
         return (EReference)elkLabelEClass.getEStructuralFeatures().get(0);
     }
 
@@ -426,7 +426,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getElkNode_ParentNode() {
+    public EReference getElkNode_Parent() {
         return (EReference)elkNodeEClass.getEStructuralFeatures().get(2);
     }
 
@@ -462,7 +462,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getElkPort_ParentNode() {
+    public EReference getElkPort_Parent() {
         return (EReference)elkPortEClass.getEStructuralFeatures().get(0);
     }
 
@@ -507,7 +507,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getElkEdge_EdgeSections() {
+    public EReference getElkEdge_Sections() {
         return (EReference)elkEdgeEClass.getEStructuralFeatures().get(3);
     }
 
@@ -615,7 +615,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    public EReference getElkEdgeSection_ParentEdge() {
+    public EReference getElkEdgeSection_Parent() {
         return (EReference)elkEdgeSectionEClass.getEStructuralFeatures().get(5);
     }
 
@@ -766,7 +766,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
         createEAttribute(elkShapeEClass, ELK_SHAPE__Y);
 
         elkLabelEClass = createEClass(ELK_LABEL);
-        createEReference(elkLabelEClass, ELK_LABEL__PARENT_ELEMENT);
+        createEReference(elkLabelEClass, ELK_LABEL__PARENT);
         createEAttribute(elkLabelEClass, ELK_LABEL__TEXT);
 
         elkConnectableShapeEClass = createEClass(ELK_CONNECTABLE_SHAPE);
@@ -776,18 +776,18 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
         elkNodeEClass = createEClass(ELK_NODE);
         createEReference(elkNodeEClass, ELK_NODE__PORTS);
         createEReference(elkNodeEClass, ELK_NODE__CHILDREN);
-        createEReference(elkNodeEClass, ELK_NODE__PARENT_NODE);
+        createEReference(elkNodeEClass, ELK_NODE__PARENT);
         createEReference(elkNodeEClass, ELK_NODE__CONTAINED_EDGES);
         createEAttribute(elkNodeEClass, ELK_NODE__HIERARCHICAL);
 
         elkPortEClass = createEClass(ELK_PORT);
-        createEReference(elkPortEClass, ELK_PORT__PARENT_NODE);
+        createEReference(elkPortEClass, ELK_PORT__PARENT);
 
         elkEdgeEClass = createEClass(ELK_EDGE);
         createEReference(elkEdgeEClass, ELK_EDGE__CONTAINING_NODE);
         createEReference(elkEdgeEClass, ELK_EDGE__SOURCES);
         createEReference(elkEdgeEClass, ELK_EDGE__TARGETS);
-        createEReference(elkEdgeEClass, ELK_EDGE__EDGE_SECTIONS);
+        createEReference(elkEdgeEClass, ELK_EDGE__SECTIONS);
         createEAttribute(elkEdgeEClass, ELK_EDGE__HYPEREDGE);
         createEAttribute(elkEdgeEClass, ELK_EDGE__HIERARCHICAL);
 
@@ -801,7 +801,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
         createEAttribute(elkEdgeSectionEClass, ELK_EDGE_SECTION__END_X);
         createEAttribute(elkEdgeSectionEClass, ELK_EDGE_SECTION__END_Y);
         createEReference(elkEdgeSectionEClass, ELK_EDGE_SECTION__BEND_POINTS);
-        createEReference(elkEdgeSectionEClass, ELK_EDGE_SECTION__PARENT_EDGE);
+        createEReference(elkEdgeSectionEClass, ELK_EDGE_SECTION__PARENT);
         createEReference(elkEdgeSectionEClass, ELK_EDGE_SECTION__OUTGOING_SHAPE);
         createEReference(elkEdgeSectionEClass, ELK_EDGE_SECTION__INCOMING_SHAPE);
         createEReference(elkEdgeSectionEClass, ELK_EDGE_SECTION__OUTGOING_SECTIONS);
@@ -904,7 +904,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
         initEClass(elkGraphDataEClass, ElkGraphData.class, "ElkGraphData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         initEClass(elkGraphElementEClass, ElkGraphElement.class, "ElkGraphElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getElkGraphElement_Labels(), this.getElkLabel(), this.getElkLabel_ParentElement(), "labels", null, 0, -1, ElkGraphElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkGraphElement_Labels(), this.getElkLabel(), this.getElkLabel_Parent(), "labels", null, 0, -1, ElkGraphElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getElkGraphElement_Data(), this.getElkGraphData(), null, "data", null, 0, -1, ElkGraphElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getElkGraphElement_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, ElkGraphElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -934,7 +934,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
         addEParameter(op, ecorePackage.getEDouble(), "y", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         initEClass(elkLabelEClass, ElkLabel.class, "ElkLabel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getElkLabel_ParentElement(), this.getElkGraphElement(), this.getElkGraphElement_Labels(), "parentElement", null, 0, 1, ElkLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkLabel_Parent(), this.getElkGraphElement(), this.getElkGraphElement_Labels(), "parent", null, 0, 1, ElkLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getElkLabel_Text(), ecorePackage.getEString(), "text", "", 0, 1, ElkLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(elkConnectableShapeEClass, ElkConnectableShape.class, "ElkConnectableShape", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -942,20 +942,20 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
         initEReference(getElkConnectableShape_IncomingEdges(), this.getElkEdge(), this.getElkEdge_Targets(), "incomingEdges", null, 0, -1, ElkConnectableShape.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(elkNodeEClass, ElkNode.class, "ElkNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getElkNode_Ports(), this.getElkPort(), this.getElkPort_ParentNode(), "ports", null, 0, -1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getElkNode_Children(), this.getElkNode(), this.getElkNode_ParentNode(), "children", null, 0, -1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getElkNode_ParentNode(), this.getElkNode(), this.getElkNode_Children(), "parentNode", null, 0, 1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkNode_Ports(), this.getElkPort(), this.getElkPort_Parent(), "ports", null, 0, -1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkNode_Children(), this.getElkNode(), this.getElkNode_Parent(), "children", null, 0, -1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkNode_Parent(), this.getElkNode(), this.getElkNode_Children(), "parent", null, 0, 1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getElkNode_ContainedEdges(), this.getElkEdge(), this.getElkEdge_ContainingNode(), "containedEdges", null, 0, -1, ElkNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getElkNode_Hierarchical(), ecorePackage.getEBoolean(), "hierarchical", null, 0, 1, ElkNode.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
         initEClass(elkPortEClass, ElkPort.class, "ElkPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getElkPort_ParentNode(), this.getElkNode(), this.getElkNode_Ports(), "parentNode", null, 0, 1, ElkPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkPort_Parent(), this.getElkNode(), this.getElkNode_Ports(), "parent", null, 0, 1, ElkPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         initEClass(elkEdgeEClass, ElkEdge.class, "ElkEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         initEReference(getElkEdge_ContainingNode(), this.getElkNode(), this.getElkNode_ContainedEdges(), "containingNode", null, 0, 1, ElkEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getElkEdge_Sources(), this.getElkConnectableShape(), this.getElkConnectableShape_OutgoingEdges(), "sources", null, 0, -1, ElkEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getElkEdge_Targets(), this.getElkConnectableShape(), this.getElkConnectableShape_IncomingEdges(), "targets", null, 0, -1, ElkEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getElkEdge_EdgeSections(), this.getElkEdgeSection(), this.getElkEdgeSection_ParentEdge(), "edgeSections", null, 0, -1, ElkEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkEdge_Sections(), this.getElkEdgeSection(), this.getElkEdgeSection_Parent(), "sections", null, 0, -1, ElkEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getElkEdge_Hyperedge(), ecorePackage.getEBoolean(), "hyperedge", null, 0, 1, ElkEdge.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getElkEdge_Hierarchical(), ecorePackage.getEBoolean(), "hierarchical", null, 0, 1, ElkEdge.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -973,7 +973,7 @@ public class ElkGraphPackageImpl extends EPackageImpl implements ElkGraphPackage
         initEAttribute(getElkEdgeSection_EndX(), ecorePackage.getEDouble(), "endX", null, 0, 1, ElkEdgeSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEAttribute(getElkEdgeSection_EndY(), ecorePackage.getEDouble(), "endY", null, 0, 1, ElkEdgeSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getElkEdgeSection_BendPoints(), this.getElkBendPoint(), null, "bendPoints", null, 0, -1, ElkEdgeSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getElkEdgeSection_ParentEdge(), this.getElkEdge(), this.getElkEdge_EdgeSections(), "parentEdge", null, 0, 1, ElkEdgeSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        initEReference(getElkEdgeSection_Parent(), this.getElkEdge(), this.getElkEdge_Sections(), "parent", null, 0, 1, ElkEdgeSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getElkEdgeSection_OutgoingShape(), this.getElkConnectableShape(), null, "outgoingShape", null, 0, 1, ElkEdgeSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getElkEdgeSection_IncomingShape(), this.getElkConnectableShape(), null, "incomingShape", null, 0, 1, ElkEdgeSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         initEReference(getElkEdgeSection_OutgoingSections(), this.getElkEdgeSection(), this.getElkEdgeSection_IncomingSections(), "outgoingSections", null, 0, -1, ElkEdgeSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

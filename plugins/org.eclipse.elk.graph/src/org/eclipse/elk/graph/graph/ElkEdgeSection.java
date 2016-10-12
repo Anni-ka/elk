@@ -38,7 +38,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getEndX <em>End X</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getEndY <em>End Y</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getBendPoints <em>Bend Points</em>}</li>
- *   <li>{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getParentEdge <em>Parent Edge</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getParent <em>Parent</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getOutgoingShape <em>Outgoing Shape</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getIncomingShape <em>Incoming Shape</em>}</li>
  *   <li>{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getOutgoingSections <em>Outgoing Sections</em>}</li>
@@ -166,8 +166,8 @@ public interface ElkEdgeSection extends EMapPropertyHolder {
     EList<ElkBendPoint> getBendPoints();
 
     /**
-     * Returns the value of the '<em><b>Parent Edge</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkEdge#getEdgeSections <em>Edge Sections</em>}'.
+     * Returns the value of the '<em><b>Parent</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkEdge#getSections <em>Sections</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
@@ -175,24 +175,24 @@ public interface ElkEdgeSection extends EMapPropertyHolder {
      * 
      * <p>Setting the parent edge automatically updates its list of edge sections.</p>
      * <!-- end-model-doc -->
-     * @return the value of the '<em>Parent Edge</em>' container reference.
-     * @see #setParentEdge(ElkEdge)
-     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkEdgeSection_ParentEdge()
-     * @see org.eclipse.elk.graph.graph.ElkEdge#getEdgeSections
-     * @model opposite="edgeSections" transient="false"
+     * @return the value of the '<em>Parent</em>' container reference.
+     * @see #setParent(ElkEdge)
+     * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkEdgeSection_Parent()
+     * @see org.eclipse.elk.graph.graph.ElkEdge#getSections
+     * @model opposite="sections" transient="false"
      * @generated
      */
-    ElkEdge getParentEdge();
+    ElkEdge getParent();
 
     /**
-     * Sets the value of the '{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getParentEdge <em>Parent Edge</em>}' container reference.
+     * Sets the value of the '{@link org.eclipse.elk.graph.graph.ElkEdgeSection#getParent <em>Parent</em>}' container reference.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Parent Edge</em>' container reference.
-     * @see #getParentEdge()
+     * @param value the new value of the '<em>Parent</em>' container reference.
+     * @see #getParent()
      * @generated
      */
-    void setParentEdge(ElkEdge value);
+    void setParent(ElkEdge value);
 
     /**
      * Returns the value of the '<em><b>Outgoing Shape</b></em>' reference.

@@ -38,7 +38,7 @@ public interface ElkGraphElement extends EMapPropertyHolder {
     /**
      * Returns the value of the '<em><b>Labels</b></em>' containment reference list.
      * The list contents are of type {@link org.eclipse.elk.graph.graph.ElkLabel}.
-     * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkLabel#getParentElement <em>Parent Element</em>}'.
+     * It is bidirectional and its opposite is '{@link org.eclipse.elk.graph.graph.ElkLabel#getParent <em>Parent</em>}'.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * <!-- begin-model-doc -->
@@ -48,8 +48,8 @@ public interface ElkGraphElement extends EMapPropertyHolder {
      * <!-- end-model-doc -->
      * @return the value of the '<em>Labels</em>' containment reference list.
      * @see org.eclipse.elk.graph.graph.ElkGraphPackage#getElkGraphElement_Labels()
-     * @see org.eclipse.elk.graph.graph.ElkLabel#getParentElement
-     * @model opposite="parentElement" containment="true"
+     * @see org.eclipse.elk.graph.graph.ElkLabel#getParent
+     * @model opposite="parent" containment="true"
      * @generated
      */
     EList<ElkLabel> getLabels();

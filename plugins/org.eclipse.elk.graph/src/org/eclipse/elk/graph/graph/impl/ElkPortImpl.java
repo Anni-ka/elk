@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkPortImpl#getParentNode <em>Parent Node</em>}</li>
+ *   <li>{@link org.eclipse.elk.graph.graph.impl.ElkPortImpl#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @generated
@@ -62,8 +62,8 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
      * <!-- end-user-doc -->
      * @generated
      */
-    public ElkNode getParentNode() {
-        if (eContainerFeatureID() != ElkGraphPackage.ELK_PORT__PARENT_NODE) return null;
+    public ElkNode getParent() {
+        if (eContainerFeatureID() != ElkGraphPackage.ELK_PORT__PARENT) return null;
         return (ElkNode)eInternalContainer();
     }
 
@@ -72,8 +72,8 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
      * <!-- end-user-doc -->
      * @generated
      */
-    public NotificationChain basicSetParentNode(ElkNode newParentNode, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newParentNode, ElkGraphPackage.ELK_PORT__PARENT_NODE, msgs);
+    public NotificationChain basicSetParent(ElkNode newParent, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject)newParent, ElkGraphPackage.ELK_PORT__PARENT, msgs);
         return msgs;
     }
 
@@ -82,20 +82,20 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
      * <!-- end-user-doc -->
      * @generated
      */
-    public void setParentNode(ElkNode newParentNode) {
-        if (newParentNode != eInternalContainer() || (eContainerFeatureID() != ElkGraphPackage.ELK_PORT__PARENT_NODE && newParentNode != null)) {
-            if (EcoreUtil.isAncestor(this, newParentNode))
+    public void setParent(ElkNode newParent) {
+        if (newParent != eInternalContainer() || (eContainerFeatureID() != ElkGraphPackage.ELK_PORT__PARENT && newParent != null)) {
+            if (EcoreUtil.isAncestor(this, newParent))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
-            if (newParentNode != null)
-                msgs = ((InternalEObject)newParentNode).eInverseAdd(this, ElkGraphPackage.ELK_NODE__PORTS, ElkNode.class, msgs);
-            msgs = basicSetParentNode(newParentNode, msgs);
+            if (newParent != null)
+                msgs = ((InternalEObject)newParent).eInverseAdd(this, ElkGraphPackage.ELK_NODE__PORTS, ElkNode.class, msgs);
+            msgs = basicSetParent(newParent, msgs);
             if (msgs != null) msgs.dispatch();
         }
         else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ElkGraphPackage.ELK_PORT__PARENT_NODE, newParentNode, newParentNode));
+            eNotify(new ENotificationImpl(this, Notification.SET, ElkGraphPackage.ELK_PORT__PARENT, newParent, newParent));
     }
 
     /**
@@ -106,10 +106,10 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_PORT__PARENT_NODE:
+            case ElkGraphPackage.ELK_PORT__PARENT:
                 if (eInternalContainer() != null)
                     msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetParentNode((ElkNode)otherEnd, msgs);
+                return basicSetParent((ElkNode)otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -122,8 +122,8 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_PORT__PARENT_NODE:
-                return basicSetParentNode(null, msgs);
+            case ElkGraphPackage.ELK_PORT__PARENT:
+                return basicSetParent(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -136,7 +136,7 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
-            case ElkGraphPackage.ELK_PORT__PARENT_NODE:
+            case ElkGraphPackage.ELK_PORT__PARENT:
                 return eInternalContainer().eInverseRemove(this, ElkGraphPackage.ELK_NODE__PORTS, ElkNode.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -150,8 +150,8 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_PORT__PARENT_NODE:
-                return getParentNode();
+            case ElkGraphPackage.ELK_PORT__PARENT:
+                return getParent();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -164,8 +164,8 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_PORT__PARENT_NODE:
-                setParentNode((ElkNode)newValue);
+            case ElkGraphPackage.ELK_PORT__PARENT:
+                setParent((ElkNode)newValue);
                 return;
         }
         super.eSet(featureID, newValue);
@@ -179,8 +179,8 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_PORT__PARENT_NODE:
-                setParentNode((ElkNode)null);
+            case ElkGraphPackage.ELK_PORT__PARENT:
+                setParent((ElkNode)null);
                 return;
         }
         super.eUnset(featureID);
@@ -194,8 +194,8 @@ public class ElkPortImpl extends ElkConnectableShapeImpl implements ElkPort {
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ElkGraphPackage.ELK_PORT__PARENT_NODE:
-                return getParentNode() != null;
+            case ElkGraphPackage.ELK_PORT__PARENT:
+                return getParent() != null;
         }
         return super.eIsSet(featureID);
     }
